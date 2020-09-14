@@ -5,21 +5,28 @@ import java.time.format.DateTimeFormatter;
 public class Main {
   public static void main(final String[] args){
     System.out.println("Main working!");
-    // pluralize("dog", 2);
-    // flipHeads(2);
+    int dogCount = 1;
+    System.out.println("I own " + dogCount + " " + pluralize("dog", dogCount) + ".");
+
+    int catCount = 2;
+    System.out.println("I own " + catCount + " " + pluralize("cat", catCount) + ".");
+
+    int turtleCount = 0;
+    System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCount) + ".");
+    flipHeads(2);
     clock();
   }
-  // function pluralize that will make a word plural if it is 0 or greater than 1
-  public static void pluralize(final String word, final int num) {
+  // function pluralize that take in word and a count, and will return a plural word if it is 0 or greater than 1
+  public static String pluralize(String word, int num) {
     if (num < 0) {
-      System.out.println ("Please enter 0 or number greater than 0");
-      return;
+      return "Please enter 0 or number greater than 0";
     } else {
       String statement;
       statement = num ==1? word:word + "s";
-      System.out.println("I owe "+ num + " "+ statement +".");
+      return statement;
     } 
   }
+  //function that takes in a number and will flip coints heads multiple number of times until n number of heads will fall in a row. Function uses a random number generator as import
   public static void flipHeads(int n){
     System.out.println(n);
     int counter = 0;
@@ -40,6 +47,7 @@ public class Main {
     String flip = counter==1? "flip":"flips";
     System.out.println("It took " + counter + " " + flip + " to flip "+ headCount + " " + word + " in a row.");
   }
+  //function to generate time every second until ^C is pressed, using imports import java.time.LocalDateTime and java.time.format.DateTimeFormatter
   public static void clock(){
     LocalDateTime now = LocalDateTime.now();
     String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));

@@ -53,12 +53,16 @@ public class Main {
     System.out.println("this is the time: " + time);
     int i = 0;
     int second = now.getSecond();
+    int counter = 0;
     while (true){
+      counter ++;
       now = LocalDateTime.now();
       if (second != now.getSecond()){
         time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        System.out.println("this is the time: " + time);
+        int getHertz = counter/1000000;
+        System.out.println("this is the time: " + time + "  took " + getHertz + " MHz");
         second=now.getSecond();
+        counter = 0;
       }
     }
   }

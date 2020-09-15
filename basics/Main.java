@@ -32,8 +32,7 @@ public class Main {
     int counter = 0;
     int headCount = 0;
     while (headCount != n) {
-      float x = (float) (Math.random());
-      if (x>0.5){
+      if (Math.random()>0.5){
         counter ++;
         headCount++;
         System.out.println("Head");

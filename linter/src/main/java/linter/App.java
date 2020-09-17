@@ -13,27 +13,32 @@ public class App {
     }
 
     public static void main(String[] args) {
+        String pathName = "src/main/resources/manyErrors.js";
+        System.out.println(checkLinterError(pathName));
+    }
+
+    public static String checkLinterError(String pathName) {
         Scanner gates;
         try {
-            gates = new Scanner(new File("src/main/resources/gates.js"));
+            gates = new Scanner(new File(pathName));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("We couldn't find that book, could you get a better filepath?");
-            return;
+            return "We couldn't find that book, could you get a better filepath?";
         }
         int count = 0;
-        while (gates.hasNext()){
+        String returnString = "";
+        if (!gates.hasNext()){return "Empty File!";}
+        while (gates.hasNext()) {
             // get each line in the js file
             String nextLine = gates.nextLine();
             //counts each line
-            count ++;
-            if (!nextLine.isEmpty()&&!nextLine.contains("if")&&!nextLine.contains("else")&&!nextLine.endsWith("{")&&!nextLine.endsWith("}")&&!nextLine.startsWith("//")) {
+            count++;
+            if (!nextLine.isEmpty() && !nextLine.contains("if") && !nextLine.contains("else") && !nextLine.endsWith("{") && !nextLine.endsWith("}") && !nextLine.startsWith("//")) {
                 char lastChar = nextLine.charAt(nextLine.length() - 1);
-                if (lastChar != ';'){
-                    System.out.println("Line " + count + " is missing semicolon." );
+                if (lastChar != ';') {
+                    returnString += "Line " + count + " is missing semicolon.\n";
                 }
             }
         }
-
+        return returnString;
     }
 }

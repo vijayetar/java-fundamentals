@@ -16,9 +16,21 @@ __avgOfArray(array of integers)__: function that takes in an array of integers a
 _Testing_ done with a simple integer returned.  Could not test using float or double.  
 __findLowestAvgArray(array of array of integers)__: function that accepts an array of arrays of integers and finds the lowest average from the matrix, and returns the array with the lowest average.  
 _Testing_ completed for matrix of different sized arrays. It also skips over empty arrays.  
+  
+3.HashMaps    
+a. [WeatherData](./basiclibrary/src/main/java/basiclibrary/WeatherData.java)   
+__findMinMax__ : function that takes in a matrix of integers containing weather information and returns a string with high/low values and any missing temperatures between the low and high values as a multiline string.  
+b. [TallyElection](./basiclibrary/src/main/java/basiclibrary/TallyElection.java)   
+__tally__:function that takes in List of Strings representing votes and returns one string to show what got the most votes  
+
+4. [File I/O Linter check](./linter/src/main/java/linter/App.java)  
+__main__:method that reads a JavaScript file with a given Path using [Scanner](https://docs.oracle.com/javase/tutorial/essential/io/scanning.html), and generates an error message whenever it finds a line that doesn’t end in a semi-colon.
 
 ## References
 1.  [Random number generator](https://www.codejava.net/coding/how-to-generate-random-numbers-in-java)  
 2. [Local Date Time](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html)  
 
 3. [Positive and Negative infinity](https://stackoverflow.com/questions/12952024/how-to-implement-infinity-in-java)  
+
+4. [Scanner](https://docs.oracle.com/javase/tutorial/essential/io/scanning.html)  
+

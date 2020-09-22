@@ -13,14 +13,14 @@ public class Restaurant {
     public static ArrayList<Review> restaurantReviews= new ArrayList<>();
 
     //constructor
-    public Restaurant(String name, double stars, String price){
+    public Restaurant(String name, String price){
         this.name = name;
-        this.stars = stars;
         this.price = price;
+        this.stars = 3;
     }
     // return string
     public String toString(){
-        return format("Name : %s, Stars: %d, Price: %s", name, stars, price);
+        return format("Name : %s, Price: %s", name, price);
     }
 
     // get name, stars, price
@@ -52,6 +52,7 @@ public class Restaurant {
     public void addReview(Review review){
         // adds the review to the array list of reviews for the restaurant
         this.restaurantReviews.add(review);
+        this.updateStars();
         // adds the restaurant to the array list of restaurants reviewed altogether
         if (!review.allRestaurants.contains(this)) {
             review.allRestaurants.add(this);

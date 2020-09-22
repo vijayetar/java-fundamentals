@@ -35,5 +35,10 @@ public class ReviewTest {
                 "Restaurant Details: Name : Angeles, Stars: 4, Price: $$ \n" +
                 "1.  Review: so-so, Author: vij,  Stars: 2\n", Review.showEachRestaurantReview());
     }
+    @Test public void testGetReviewStars(){
+        Review testPlace = new Review("too expensive", "Vij", 2);
+        assertEquals(2, testPlace.getReviewStars() );
+
+    }
 
 }

@@ -34,6 +34,14 @@ public class RestaurantTest {
                 "1. Review: Great job with service!, Author: Vij,  Stars: 3 ,\n" +
                 "2. Review: Not so great today!, Author: Vij,  Stars: 1 ,\n", daVinci.showReviews());
     }
+    @Test public void testUpdateStars(){
+        Restaurant daVinci = new Restaurant("daVinci", 4, "$$$");
+        daVinci.addReview(new Review("Great job with service!", "Vij", 3));
+        daVinci.addReview(new Review ("Not so great today!", "Vij", 1));
+        daVinci.addReview(new Review ("Great day today!", "Vij", 5));
+        System.out.println(daVinci.updateStars());
+        assertEquals(3.0, daVinci.updateStars(),0);
+    }
 
 
 }

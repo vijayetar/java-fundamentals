@@ -8,12 +8,12 @@ public class Restaurant {
     // variables
     private String name;
     private String price;
-    private int stars;
+    private double stars;
     private Review review;
     public static ArrayList<Review> restaurantReviews= new ArrayList<>();
 
     //constructor
-    public Restaurant(String name, int stars, String price){
+    public Restaurant(String name, double stars, String price){
         this.name = name;
         this.stars = stars;
         this.price = price;
@@ -27,7 +27,7 @@ public class Restaurant {
     public String getName(){
         return this.name;
     }
-    public int getStars(){
+    public double getStars(){
         return this.stars;
     }
     public String getPrice(){
@@ -39,7 +39,7 @@ public class Restaurant {
        this.name=name;
        return this.name;
     }
-    public int setStars(int stars){
+    public double setStars(int stars){
         this.stars = stars;
         return this.stars;
     }
@@ -64,6 +64,18 @@ public class Restaurant {
         allReviews.add(review);
         review.restaurantAndReviews.put(this, allReviews);
     }
+    // update the stars
+    public double updateStars(){
+        int totalReviews = 0;
+        int totalStars = 0;
+        for (Review rv: this.restaurantReviews){
+           totalStars+= rv.getReviewStars();
+           totalReviews++;
+        }
+        int newStars = totalStars/totalReviews;
+        return this.setStars(newStars);
+    }
+
     // shows the reviews for that restaurant
     public static String showReviews(){
         int count = 0;

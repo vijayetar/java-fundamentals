@@ -30,6 +30,9 @@ public class Review {
         }
         return outputString;
     }
+    public int getReviewStars(){
+        return this.stars1;
+    }
 
     public static String showEachRestaurantReview(){
         String outputString = "";

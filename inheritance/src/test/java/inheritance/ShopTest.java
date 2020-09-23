@@ -20,7 +20,7 @@ public class ShopTest {
         resetStaticVariables();
         Shop flowerShop = new Shop("Buzzy", "sells flowers", 4);
         flowerShop.addReview(new Review("This is a great place", "V", 4));
-        flowerShop.addReview(new Review("This is so-so", "VV", 2));
+        flowerShop.addReview(new Review("This is so-so", "another author", 2));
         assertEquals("Review: This is a great place, Author: V,  Stars: 4\n" +
                 "Review: This is so-so, Author: VV,  Stars: 2\n", flowerShop.getReviews());
     }

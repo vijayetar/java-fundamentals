@@ -40,9 +40,10 @@ public class ReviewTest {
         daVinci.addReview(new Review ("great place", "vij", 3));
         daVinci.addReview(new Review("so-so", "john", 2));
         angeles.addReview(new Review ("so-so", "vij", 2));
-        assertEquals("\nRestaurant Details: Name : daVinci, Price: $$ \n" +
-                "1.  Review: great place, Author: vij,  Stars: 3\n" +
-                "2.  Review: so-so, Author: john,  Stars: 2\n" +
+        assertEquals("\n" +
+                "Restaurant Details: Name : daVinci, Price: $$ \n" +
+                "1.  Review: so-so, Author: vij,  Stars: 2\n" +
+                "2.  Review: so-so, Author: vij,  Stars: 2\n" +
                 "\n" +
                 "Restaurant Details: Name : Angeles, Price: $$ \n" +
                 "1.  Review: so-so, Author: vij,  Stars: 2\n", Review.showEachRestaurantReview());
@@ -76,17 +77,17 @@ public class ReviewTest {
         buzzy.addReview(new Review ("beautiful service", "Vij", 3));
         lucky.addReview(new Review ("great noodles", "Vij", 4));
         lucky.addReview(new Review ("delicious food", "V", 5));
-        assertEquals("" +
-                "\nShop Details: Shop name:  Buzzy, \n" +
-                " Description: flower shop, \n" +
-                " Dollars: 3 \n" +
-                "1.  Review: beautiful service, Author: Vij,  Stars: 3\n" +
-                "\n" +
+        assertEquals("\n" +
                 "Shop Details: Shop name:  Lucky, \n" +
                 " Description: noodle place, \n" +
                 " Dollars: 5 \n" +
-                "1.  Review: great noodles, Author: Vij,  Stars: 4\n" +
-                "2.  Review: delicious food, Author: V,  Stars: 5\n", Review.showEachShopReview());
+                "1.  Review: delicious food, Author: V,  Stars: 5\n" +
+                "2.  Review: delicious food, Author: V,  Stars: 5\n" +
+                "\n" +
+                "Shop Details: Shop name:  Buzzy, \n" +
+                " Description: flower shop, \n" +
+                " Dollars: 3 \n" +
+                "1.  Review: delicious food, Author: V,  Stars: 5\n", Review.showEachShopReview());
     }
 
 }

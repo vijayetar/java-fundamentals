@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThrows;
 public class TheaterTest {
     public void clearStatics(){
         Theater.movieList.clear();
+        Theater.reviewList.clear();
     }
     @Test
     public void testTheaterInstance(){
@@ -50,4 +51,25 @@ public class TheaterTest {
 //        assertThrows(theBase.removeMovie("Movie Five"), "");
 //
 //    }
+    // test add reviews and show reviews
+    @Test public void testAddTheaterReview() {
+        clearStatics();
+        Theater theBase = new Theater("The Base");
+        theBase.addTheaterReview(new Review ("great place", "V", 3));
+        theBase.addTheaterReview(new Review ("so-so", "v", 2));
+        assertEquals("Here are the reviews: \n" +
+                "Review: so-so, Author: v,  Stars: 2\n" +
+                "Review: so-so, Author: v,  Stars: 2", theBase.showReviews());
+    }
+    @Test public void testAddMovieReview() {
+        clearStatics();
+        Theater theBase = new Theater("The Base");
+        theBase.addTheaterReview(new Review ("great place", "V", 3));
+        theBase.addTheaterReview(new Review ("so-so", "v", 2));
+        theBase.addMovieReview(new ReviewMovie("Movie One", "So-so movie", "V", 2));
+        assertEquals("Here are the reviews: \n" +
+                "Review: So-so movie, Author: V,  Stars: 2\n" +
+                "Review: So-so movie, Author: V,  Stars: 2\n" +
+                "Movie name: Movie One  Review: So-so movie  By: V Stars: 2", theBase.showReviews());
+    }
 }

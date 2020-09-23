@@ -6,6 +6,7 @@ import java.util.LinkedList;
 public class Theater {
     private String name;
     public static LinkedList<String> movieList = new LinkedList<>();
+    public static LinkedList<Review> reviewList = new LinkedList<>();
 
     public Theater(String name){
         this.name = name;
@@ -31,6 +32,21 @@ public class Theater {
         }
         if (output == ""){
             return "No movies playing right now!";
+        }
+        return output;
+    }
+    // store the theater reviews
+    public void addTheaterReview(Review review){
+        reviewList.add(review);
+    }
+    public void addMovieReview(ReviewMovie reviewMovie){
+        reviewList.add(reviewMovie);
+    }
+
+    public String showReviews(){
+        String output = "Here are the reviews: ";
+        for (Review rv: reviewList){
+            output+= "\n"+rv;
         }
         return output;
     }
